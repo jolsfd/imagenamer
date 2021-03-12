@@ -1,5 +1,6 @@
 import os, json
 
+# TODO output with color
 class Settings:
     def __init__(self, path_to_settings):
         self.path_to_settings = path_to_settings
