@@ -9,6 +9,19 @@ class Settings:
             'space_letter':'_'
         }
 
+    def save_settings(self, settings):
+        try:
+            json_file = open(self.path_to_settings, 'w')
+
+            json.dump(settings, json_file)
+
+            json_file.close()
+
+            print('Saved Changes into json file.')
+
+        except:
+            print('Settings could not be saved') # print red
+
     def load_settings(self):
         try:
             json_file = open(self.path_to_settings ,'r')
