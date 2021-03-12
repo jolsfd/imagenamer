@@ -35,3 +35,25 @@ class Settings:
             self.save_settings(self.settings_template)
 
             return self.settings_template
+
+    def check_settings(self, settings):
+        error = False
+
+        try:
+            if type(settings['safe_string']) != type(str()):
+                error = True
+
+            if type(settings['file_ext']) != type(list()):
+                error = True
+
+            if type(settings['space_letter']) != type(str()):
+                error = True
+
+        except AttributeError:
+            print('Could not find all Settings. Please visit https://github.com/jolsfd/imagenamer') # print red
+            error = True
+
+        if error:
+            print('Error in settings. Please visit https://github.com/jolsfd/imagenamer') # print red
+
+        return error
