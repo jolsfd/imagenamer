@@ -1,5 +1,5 @@
-import os, exif
-from typing import Dict
+import os
+from exif import Image
 
 class Rename:
     def __init__(self, settings):
