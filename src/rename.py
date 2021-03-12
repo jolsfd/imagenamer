@@ -15,5 +15,26 @@ class Rename:
             model = image_exif.model().replace(' ','')
 
             new_filename = self.settings['safe_string'] + space_letter + datetime + space_letter + model
-            
+
             return new_filename
+
+    #def rename_image_copy(old_filename,new_filename)
+
+    def collect_files(self,path_to_files):
+        files = []
+
+        for root, dirnames, filenames in os.walk(path_to_files):
+            for file in filenames:
+                # check safe string
+                if file[:len(self.settings['safe_string'])] == self.settings['safe_string']:
+                    continue
+
+                # check file extension
+                file_ext = os.path.splitext(file)[1]
+
+                if file_ext in self.settings['file_ext']:
+                    files.append(os.path.join(root, file))
+
+        del dirnames
+
+        return files
