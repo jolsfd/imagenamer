@@ -5,6 +5,12 @@ class Rename:
     def __init__(self, settings):
         self.settings = settings
 
+    def get_file_data(self,file):
+        head, tail = os.path.split(file)
+        filename, file_ext = os.path.splitext(tail)
+
+        return head, filename, file_ext
+
     def new_filename(self, image_object):
         space_letter = self.settings['space_letter']
         datetime = image_object.datetime_original().replace(':','').replace(' ',space_letter)
@@ -47,7 +53,7 @@ class Rename:
 
         return files, other_files
 
-    def rename_images(self,file_list):
+    def rename_images(self,file_list,other_file_list):
         for old_file in file_list:
             head, old_tail = os.path.split(old_file)
 
@@ -59,8 +65,8 @@ class Rename:
             if image_object.has_exif():
                 new_filename = self.new_filename(image_object)
 
-                # if raw
-                # check other list
+                if self.settings['raw_renaming']:
+                    self.rename_raw()
 
                 new_file = os.path.join(head, new_filename + file_ext)
 
