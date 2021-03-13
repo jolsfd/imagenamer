@@ -9,7 +9,7 @@ class Rename:
         head, tail = os.path.split(file)
         filename, file_ext = os.path.splitext(tail)
 
-        return head, filename, file_ext
+        return head, filename, file_ext, tail
 
     def new_filename(self, image_object):
         space_letter = self.settings['space_letter']
@@ -86,27 +86,27 @@ class Rename:
                 print('{} has no exif'.format(old_tail)) # red
 
     def rename_image(self,old_file):
-        head, old_filename, file_ext = self.get_file_data(old_file)
+        head, old_filename, file_ext, old_tail = self.get_file_data(old_file)
     
         with open(old_file, 'rb'):
             image_object = Image(old_file)
 
         if image_object.has_exif():
+            # Build new file data
             new_filename = self.new_filename(image_object)
-
-            #if self.settings['raw_renaming']:
-                #self.rename_raw()
-
+            new_tail = new_filename + file_ext
             new_file = os.path.join(head, new_filename + file_ext)
 
+            # Rename file
             if os.path.isfile(new_file):
-                self.rename_image_copy(old_file,head,new_filename,file_ext,2)
+                #self.rename_image_copy(old_file,head,new_filename,file_ext,2)
+                print(new_tail + 'not renamed') # TODO: Better copy renaming
 
-            if os.path.isfile(old_file):
+            elif os.path.isfile(old_file) and not os.path.isfile(new_file):
                 # rename file
                 os.rename(old_file, new_file)
 
-                print('{old_tail} -> {new_tail}'.format(old_tail=old_filename + file_ext, new_tail=new_filename + file_ext))
+                print('{old_tail} -> {new_tail}'.format(old_tail, new_tail))
 
             else:
                 print('{} was not found'.format(old_filename + file_ext)) # print red
