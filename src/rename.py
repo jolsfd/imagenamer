@@ -63,8 +63,8 @@ class Rename:
 
                 new_file = os.path.join(head, new_filename + file_ext)
 
-                #if os.path.isfile(new_file):
-                    #self.rename_image_copy(old_file,head,new_filename,file_ext,2)
+                if os.path.isfile(new_file):
+                    self.rename_image_copy(old_file,head,new_filename,file_ext,2)
 
                 if os.path.isfile(old_file):
                     # rename file
