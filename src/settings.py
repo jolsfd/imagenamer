@@ -8,7 +8,8 @@ class Settings:
             'safe_string':'IMG',
             'file_ext':['.jpg'],
             'space_letter':'_',
-            'raw_rename':True
+            'raw_rename':True,
+            'raw_ext':['.raw']
         }
 
     def save_settings(self, settings):
@@ -52,6 +53,9 @@ class Settings:
                 error = True
 
             if type(settings['raw_rename']) != type(bool()):
+                error = True
+
+            if type(settings['raw_ext']) != type(list()):
                 error = True
 
         except AttributeError:
