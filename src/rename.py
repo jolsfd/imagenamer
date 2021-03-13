@@ -14,7 +14,14 @@ class Rename:
 
         return new_filename
 
-    #def rename_image_copy(old_filename,new_filename)
+    def rename_image_copy(self,old_file,head,new_filename,file_ext,number_of_copy):
+        new_file = os.path.join(head, new_filename + '~' + str(number_of_copy) + file_ext)
+
+        if os.path.isfile(new_file):
+            self.rename_image_copy(old_file,head,new_filename,file_ext,number_of_copy + 1)
+
+        else:
+            os.rename(old_file,new_file)
 
     def collect_files(self,path_to_files):
         files = []
@@ -57,7 +64,7 @@ class Rename:
                 new_file = os.path.join(head, new_filename + file_ext)
 
                 #if os.path.isfile(new_file):
-                    #self.rename_image_copy
+                    #self.rename_image_copy(old_file,head,new_filename,file_ext,2)
 
                 if os.path.isfile(old_file):
                     # rename file
