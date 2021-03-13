@@ -30,9 +30,9 @@ class Rename:
             if os.path.isfile(old_file):
                 os.rename(old_file,new_file)
 
-    def raw_rename(self, file_list, old_image_filename,new_image_filename):
-        for file in file_list:
-            head, file_ext, filename, tail = self.get_file_data(file)
+    def raw_rename(self, raw_files, old_image_filename,new_image_filename):
+        for raw in raw_files:
+            head, file_ext, filename, tail = self.get_file_data(raw)
 
             if filename == old_image_filename:
                 new_file = os.path.join(head, new_image_filename + file_ext)
@@ -42,9 +42,9 @@ class Rename:
                 if os.path.isfile(new_file):
                     print(new_tail + 'not renamed') # TODO: Better copy renaming
 
-                elif os.path.isfile(file) and not os.path.isfile(new_file):
+                elif os.path.isfile(raw) and not os.path.isfile(new_file):
                     # rename file
-                    os.rename(file, new_file)
+                    os.rename(raw, new_file)
                     print('{old_tail} -> {new_tail}'.format(tail, new_tail))
                     # delete item from list
 
@@ -106,7 +106,7 @@ class Rename:
             else:
                 print('{} has no exif'.format(old_tail)) # red
 
-    def rename_image(self,old_file, file_list):
+    def rename_image(self,old_file, raw_files):
         head, file_ext, old_filename, old_tail = self.get_file_data(old_file)
     
         with open(old_file, 'rb'):
@@ -120,7 +120,7 @@ class Rename:
             new_file = os.path.join(head, new_filename + file_ext)
 
             if self.settings['raw_renaming']:
-                self.raw_rename(file_list, old_filename, new_filename)
+                self.raw_rename(raw_files, old_filename, new_filename)
 
             # Rename file
             if os.path.isfile(new_file):
