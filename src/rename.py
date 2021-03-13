@@ -21,7 +21,8 @@ class Rename:
             self.rename_image_copy(old_file,head,new_filename,file_ext,number_of_copy + 1)
 
         else:
-            os.rename(old_file,new_file)
+            if os.path.isfile(old_file):
+                os.rename(old_file,new_file)
 
     def collect_files(self,path_to_files):
         files = []
