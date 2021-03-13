@@ -26,7 +26,7 @@ class Rename:
 
     def collect_files(self,path_to_files):
         files = []
-        #other_file
+        other_files = []
 
         for root, dirnames, filenames in os.walk(path_to_files):
             for file in filenames:
@@ -40,12 +40,12 @@ class Rename:
                 if file_ext in self.settings['file_ext']:
                     files.append(os.path.join(root, file))
 
-                #else:
-                    #other_file.append
+                else:
+                    other_files.append(os.path.join(root,file))
 
         del dirnames
 
-        return files #other_file
+        return files, other_files
 
     def rename_images(self,file_list):
         for old_file in file_list:
