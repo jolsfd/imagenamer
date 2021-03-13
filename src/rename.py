@@ -46,6 +46,7 @@ class Rename:
                     # rename file
                     os.rename(file, new_file)
                     print('{old_tail} -> {new_tail}'.format(tail, new_tail))
+                    # delete item from list
 
                 else:
                     print('{} was not found'.format(tail)) # print red
