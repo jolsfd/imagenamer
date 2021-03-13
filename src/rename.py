@@ -71,6 +71,8 @@ class Rename:
                     # rename file
                     os.rename(old_file, new_file)
 
+                    # Visualization
+
                 else:
                     print('{} was not found'.format(old_tail)) # print red
 
