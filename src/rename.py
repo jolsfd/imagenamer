@@ -40,13 +40,13 @@ class Rename:
         return files #other_file
 
     def rename_images(self,file_list):
-        for path_to_file in file_list:
-            head, old_tail = os.path.split(path_to_file)
+        for old_file in file_list:
+            head, old_tail = os.path.split(old_file)
 
             old_filename, file_ext = os.path.splitext(old_tail)
 
-            with open(path_to_file, 'rb'):
-                image_object = Image(path_to_file)
+            with open(old_file, 'rb'):
+                image_object = Image(old_file)
 
             if image_object.has_exif():
                 new_filename = self.new_filename(image_object)
@@ -54,15 +54,17 @@ class Rename:
                 # if raw
                 # check other list
 
-                old_file = path_to_file
-                new_file = head + '/' + new_filename + file_ext # os.path.join
+                new_file = os.path.join(head, new_filename + file_ext)
 
-                #if os.path.isfile(old_file):
+                #if os.path.isfile(new_file):
                     #self.rename_image_copy
 
-                if os.path.isfile(path_to_file):
+                if os.path.isfile(old_file):
                     # rename file
                     os.rename(old_file, new_file)
+
+                else:
+                    print('{} was not found'.format(old_tail)) # print red
 
             else:
                 print('{} has no exif'.format(old_tail)) # red
