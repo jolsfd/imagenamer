@@ -105,7 +105,7 @@ class Rename:
             else:
                 print('{} has no exif'.format(old_tail)) # red
 
-    def rename_image(self,old_file):
+    def rename_image(self,old_file, file_list):
         head, file_ext, old_filename, old_tail = self.get_file_data(old_file)
     
         with open(old_file, 'rb'):
@@ -117,6 +117,9 @@ class Rename:
             new_filename = self.new_filename(image_object)
             new_tail = new_filename + file_ext
             new_file = os.path.join(head, new_filename + file_ext)
+
+            if self.settings['raw_renaming']:
+                self.raw_rename(file_list, old_filename, new_filename)
 
             # Rename file
             if os.path.isfile(new_file):
