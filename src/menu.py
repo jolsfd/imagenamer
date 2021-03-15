@@ -7,6 +7,7 @@ class Menu:
     def __init__(self, path_to_settings):
         self.settings_objects = Settings(path_to_settings)
         self.settings = self.settings_objects.load_settings()
+        self.error = self.settings_objects.check_settings(self.settings)
         self.rename_object = Rename(self.settings)
 
     def rename(self):

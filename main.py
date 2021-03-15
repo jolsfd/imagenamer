@@ -6,7 +6,13 @@ def run():
     path_to_settings = os.path.join(os.path.dirname(os.path.abspath(__file__))) + '/settings/settings.json'
     menu = Menu(path_to_settings)
 
-    running = True
+    if not menu.error:
+        running = True
+
+    else:
+        print('error in settings')
+        running = False    
+
     while running:
         print('Type rename, help, settings, quit')
         user_input = input('>>>')
