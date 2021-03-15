@@ -12,11 +12,11 @@ class Settings:
             'raw_ext':['.raw']
         }
 
-    def save_settings(self, settings):
+    def save_settings(self, new_settings):
         try:
             json_file = open(self.path_to_settings, 'w')
 
-            json.dump(settings, json_file)
+            json.dump(new_settings, json_file)
 
             json_file.close()
 
