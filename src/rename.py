@@ -50,6 +50,8 @@ class Rename:
 
         del dirnames
 
+        return len(self.image_list), len(self.raw_list)
+
     def raw_rename(self, image_filename, new_filename):
         for source_name in self.raw_list:
             head, file_ext, filename, tail = self.get_file_data(source_name)
