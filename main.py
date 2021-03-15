@@ -11,7 +11,9 @@ def run():
 
     else:
         print('error in settings')
-        running = False    
+        running = False
+
+    print('Version 0.0.0')    
 
     while running:
         print('Type rename, help, settings, quit')
