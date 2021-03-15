@@ -42,7 +42,7 @@ class Rename:
                 # check file extension
                 file_ext = os.path.splitext(file)[1]
 
-                if file_ext in self.settings['file_ext']:
+                if file_ext in self.settings['image_ext']:
                     self.image_list.append(os.path.join(root, file))
 
                 elif file_ext in self.settings['raw_ext']:
