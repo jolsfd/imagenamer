@@ -34,14 +34,14 @@ class Menu:
 
         new_settings = self.settings
 
-        if len(safe_string_input) > 1:
+        if len(safe_string_input) > 0:
             new_settings['safe_string'] = safe_string_input
 
         if raw_rename_input == 'y':
-            new_settings['raw_renaming'] = True
+            new_settings['raw_rename'] = True
 
         elif raw_rename_input != 'y':
-            new_settings['raw_renaming'] = False
+            new_settings['raw_rename'] = False
 
         self.settings_objects.save_settings(new_settings)
         self.rename_object.update_settings(new_settings)
