@@ -15,8 +15,8 @@ class Rename:
 
     def new_filename(self, image_object):
         space_letter = self.settings['space_letter']
-        datetime = image_object.datetime_original().replace(':','').replace(' ',space_letter)
-        model = image_object.model().replace(' ','')
+        datetime = image_object.datetime_original.replace(':','').replace(' ',space_letter)
+        model = image_object.model.replace(' ','')
 
         new_filename = self.settings['safe_string'] + space_letter + datetime + space_letter + model
 
@@ -76,16 +76,23 @@ class Rename:
         for source_name in self.image_list:
             head, file_ext, filename, tail = self.get_file_data(source_name)
     
-            with open(source_name, 'rb'):
-                image_object = Image(source_name)
+            with open(source_name, 'rb') as image:
+                image_object = Image(image)
 
-            if image_object.has_exif():
+            if image_object.has_exif:
                 # Build new file data
-                new_filename = self.new_filename(image_object)
+                new_filename = ''
+                try:
+                    new_filename = self.new_filename(image_object)
+
+                except:
+                    print(F'{tail} has no datetime and model exif')
+                    continue
+
                 new_tail = new_filename + file_ext
                 target_name = os.path.join(head, new_tail)
 
-                if self.settings['raw_renaming']:
+                if self.settings['raw_rename']:
                     self.raw_rename(filename, new_filename)
 
                 # Rename file
