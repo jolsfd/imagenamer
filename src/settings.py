@@ -6,7 +6,7 @@ class Settings:
         self.path_to_settings = path_to_settings
         self.settings_template = {
             'safe_string':'IMG',
-            'file_ext':['.jpg'],
+            'image_ext':['.jpg'],
             'space_letter':'_',
             'raw_rename':True,
             'raw_ext':['.raw']
@@ -46,7 +46,7 @@ class Settings:
             if type(settings['safe_string']) != type(str()):
                 error = True
 
-            if type(settings['file_ext']) != type(list()):
+            if type(settings['image_ext']) != type(list()):
                 error = True
 
             if type(settings['space_letter']) != type(str()):
