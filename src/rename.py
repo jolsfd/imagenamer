@@ -4,6 +4,8 @@ from exif import Image
 class Rename:
     def __init__(self, settings):
         self.settings = settings
+        self.image_list = []
+        self.raw_list = []
 
     def get_file_data(self,file):
         head, tail = os.path.split(file)
