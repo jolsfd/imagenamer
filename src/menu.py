@@ -4,8 +4,8 @@ from src.rename import Rename
 import os
 
 class Menu:
-    def __init__(self):
-        self.settings_objects = Settings('path') #TODO: path to settings
+    def __init__(self, path_to_settings):
+        self.settings_objects = Settings(path_to_settings)
         self.settings = self.settings_objects.load_settings()
         self.rename_object = Rename(self.settings)
 
