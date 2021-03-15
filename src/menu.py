@@ -34,7 +34,7 @@ class Menu:
 
         new_settings = self.settings
 
-        if safe_string_input > 1:
+        if len(safe_string_input) > 1:
             new_settings['safe_string'] = safe_string_input
 
         if raw_rename_input == 'y':
