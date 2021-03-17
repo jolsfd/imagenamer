@@ -26,18 +26,6 @@ class Rename:
         except:
             return None
 
-    def rename_image_copy(self,source_name,number_of_copy):
-        head, file_ext = os.path.splitext(source_name)
-        target_name = head + str(number_of_copy) + file_ext
-
-        if os.path.isfile(target_name):
-            self.rename_image_copy(source_name,number_of_copy + 1)
-
-        else:
-            if os.path.isfile(source_name):
-                os.rename(source_name,target_name)
-                return target_name
-
     def collect_files(self,path_to_files):
         for root, dirnames, file_list in os.walk(path_to_files):
             for file in file_list:
