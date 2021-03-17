@@ -89,8 +89,9 @@ class Rename:
 
             if image_object.has_exif:
                 # Build new file data
+                number_of_copy = 1
                 new_filename = self.new_filename(image_object)
-                
+
                 if new_filename == None:
                     print(F'{tail} has no datetime and model exif')
                     continue
@@ -101,12 +102,12 @@ class Rename:
                 if self.settings['raw_rename']:
                     self.raw_rename(filename, new_filename)
 
-                # Rename file
-                if os.path.isfile(target_name):
-                    #print(F'{new_tail} exists already') # TODO: Better copy renaming
-                    self.rename_image_copy(target_name, 1)
+                while os.path.isfile(target_name):
+                    number_of_copy = number_of_copy + 1
+                    new_tail = new_filename + '~' + str(number_of_copy) + file_ext
+                    target_name = os.path.join(head, new_tail)
 
-                elif os.path.isfile(source_name) and not os.path.isfile(target_name):
+                if os.path.isfile(source_name) and not os.path.isfile(target_name):
                     os.rename(source_name, target_name)
                     print(F'{tail} -> {new_tail}') # green
 
