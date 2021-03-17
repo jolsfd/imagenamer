@@ -22,15 +22,17 @@ class Rename:
 
         return new_filename
 
-    def rename_image_copy(self,old_file,head,new_filename,file_ext,number_of_copy):
-        new_file = os.path.join(head, new_filename + '~' + str(number_of_copy) + file_ext)
+    def rename_image_copy(self,source_name,number_of_copy):
+        head, file_ext = os.path.splitext(source_name)
+        target_name = head + str(number_of_copy) + file_ext
 
-        if os.path.isfile(new_file):
-            self.rename_image_copy(old_file,head,new_filename,file_ext,number_of_copy + 1)
+        if os.path.isfile(target_name):
+            self.rename_image_copy(source_name,number_of_copy + 1)
 
         else:
-            if os.path.isfile(old_file):
-                os.rename(old_file,new_file)
+            if os.path.isfile(source_name):
+                os.rename(source_name,target_name)
+                return target_name
 
     def collect_files(self,path_to_files):
         for root, dirnames, file_list in os.walk(path_to_files):
@@ -63,6 +65,8 @@ class Rename:
                 # Rename file
                 if os.path.isfile(target_name):
                     print(F'{new_tail} exists already') # TODO: Better copy renaming
+                    file_name = self.rename_image_copy(target_name,1)
+                    print(F'{tail} -> {os.path.split(file_name)[1]}')
 
                 elif os.path.isfile(source_name) and not os.path.isfile(target_name):
                     os.rename(source_name, target_name)
@@ -97,7 +101,8 @@ class Rename:
 
                 # Rename file
                 if os.path.isfile(target_name):
-                    print(F'{new_tail} exists already') # TODO: Better copy renaming
+                    #print(F'{new_tail} exists already') # TODO: Better copy renaming
+                    self.rename_image_copy(target_name, 1)
 
                 elif os.path.isfile(source_name) and not os.path.isfile(target_name):
                     os.rename(source_name, target_name)
