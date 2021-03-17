@@ -14,13 +14,17 @@ class Rename:
         return head, file_ext, filename, tail
 
     def new_filename(self, image_object):
-        space_letter = self.settings['space_letter']
-        datetime = image_object.datetime_original.replace(':','').replace(' ',space_letter)
-        model = image_object.model.replace(' ','')
+        try:
+            space_letter = self.settings['space_letter']
+            datetime = image_object.datetime_original.replace(':','').replace(' ',space_letter)
+            model = image_object.model.replace(' ','')
 
-        new_filename = self.settings['safe_string'] + space_letter + datetime + space_letter + model
+            new_filename = self.settings['safe_string'] + space_letter + datetime + space_letter + model
 
-        return new_filename
+            return new_filename
+        
+        except:
+            return None
 
     def rename_image_copy(self,source_name,number_of_copy):
         head, file_ext = os.path.splitext(source_name)
@@ -85,11 +89,9 @@ class Rename:
 
             if image_object.has_exif:
                 # Build new file data
-                new_filename = ''
-                try:
-                    new_filename = self.new_filename(image_object)
-
-                except:
+                new_filename = self.new_filename(image_object)
+                
+                if new_filename == None:
                     print(F'{tail} has no datetime and model exif')
                     continue
 
