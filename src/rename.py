@@ -194,6 +194,10 @@ class Rename:
 #            else:
 #                print(F'{tail} has no exif') # red
 
+    def rename_images(self):
+        for source_name in self.image_list:
+            self.rename_image(source_name)
+
     def clear(self):
         self.image_list = []
         self.raw_list = []
