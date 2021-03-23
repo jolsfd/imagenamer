@@ -9,7 +9,7 @@ class Settings:
             'image_ext':['.jpg','.JPG'],
             'space_letter':'_',
             'raw_rename':True,
-            'raw_ext':['.raw']
+            'raw_ext':['.raw',".cr2",".dng"]
         }
 
     def save_settings(self, new_settings):
