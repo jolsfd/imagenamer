@@ -6,17 +6,6 @@ class Rename:
         self.settings = settings
         self.image_list = []
         self.raw_list = []
-        self.file_dict_template = {
-            'source_name' : '',
-            'target_name' : '',
-            'head' : '',
-            'file_ext' : '',
-            'filename' : '',
-            'new_filename' : '',
-            'tail' : '',
-            'new_tail' : '',
-            'number_of_copy' : 1
-        }
 
 #    def get_file_data(self, source_name):
 #        head, tail = os.path.split(source_name)
@@ -38,12 +27,16 @@ class Rename:
 #            return None
 
     def build_file_dict(self, source_name):
-        file_dict = self.file_dict_template
+        file_dict = {}
 
         # Insert data into dictonary
         file_dict['source_name'] = source_name
         file_dict['head'], file_dict['tail'] = os.path.split(source_name)
         file_dict['filename'], file_dict['file_ext'] = os.path.splitext(file_dict['tail'])
+        file_dict['new_filename'] = ''
+        file_dict['new_tail'] = ''
+        file_dict['target_name'] = ''
+        file_dict['number_of_copy'] = 1
 
         return file_dict
 
@@ -116,45 +109,45 @@ class Rename:
 
     def rename_raws(self, image_filename, new_image_filename):
         for source_name in self.raw_list:
-            file_dict = self.build_file_dict(source_name)
+            raw_dict = self.build_file_dict(source_name)
 
-            if file_dict['filename'] == image_filename:
-                file_dict['new_filename'] = new_image_filename
-                file_dict['new_tail'] = file_dict['new_filename'] + file_dict['file_ext']
-                file_dict['target_name'] = os.path.join(file_dict['head'], file_dict['new_tail'])
+            if raw_dict['filename'] == image_filename:
+                raw_dict['new_filename'] = new_image_filename
+                raw_dict['new_tail'] = raw_dict['new_filename'] + raw_dict['file_ext']
+                raw_dict['target_name'] = os.path.join(raw_dict['head'], raw_dict['new_tail'])
 
-                self.rename(file_dict)
+                self.rename(raw_dict)
 
                 self.raw_list.remove(source_name)
 
-            del file_dict
+            del raw_dict
 
     def rename_image(self, source_name):
-        file_dict = self.build_file_dict(source_name)
+        image_dict = self.build_file_dict(source_name)
 
         with open(source_name, 'rb') as image:
             image_exif = Image(image)
 
         if image_exif.has_exif:
-            file_dict['new_filename'] = self.exif_filename(image_exif)
+            image_dict['new_filename'] = self.exif_filename(image_exif)
 
-            if file_dict['new_filename'] != None:
-                file_dict['new_tail'] = file_dict['new_filename'] + file_dict['file_ext']
-                file_dict['target_name'] = os.path.join(file_dict['head'], file_dict['new_tail'])
+            if image_dict['new_filename'] != None:
+                image_dict['new_tail'] = image_dict['new_filename'] + image_dict['file_ext']
+                image_dict['target_name'] = os.path.join(image_dict['head'], image_dict['new_tail'])
 
                 if self.settings['raw_rename']:
-                    self.rename_raws(file_dict['filename'], file_dict['new_filename'])
+                    self.rename_raws(image_dict['filename'], image_dict['new_filename'])
 
-                self.rename(file_dict)
+                self.rename(image_dict)
 
             else:
-                print(F"{file_dict['tail']} has no datetime and model exif tags")
+                print(F"{image_dict['tail']} has no datetime and model exif tags")
 
         else:
-            print(F"{file_dict['tail']} has no exif data")
+            print(F"{image_dict['tail']} has no exif data")
 
         #delete variables for free memory space
-        del file_dict
+        del image_dict
         del image_exif
 
 #    def rename_images(self):
