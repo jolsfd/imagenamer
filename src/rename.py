@@ -37,6 +37,16 @@ class Rename:
         except:
             return None
 
+    def build_file_dict(self, source_name):
+        file_dict = self.file_dict_template
+
+        # Insert data into dictonary
+        file_dict['source_name'] = source_name
+        file_dict['head'], file_dict['tail'] = os.path.split(source_name)
+        file_dict['filename'], file_dict['file_ext'] = os.path.splitext(file_dict['tail'])
+
+        return file_dict
+
     def rename(self, file_dict):
         while os.path.isfile(file_dict['target_name']):
             file_dict['number_of_copy'] = file_dict['number_of_copy'] + 1
