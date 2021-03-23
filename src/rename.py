@@ -21,7 +21,7 @@ class Rename:
     def get_file_data(self, source_name):
         head, tail = os.path.split(source_name)
         filename, file_ext = os.path.splitext(tail)
-        
+
         return head, file_ext, filename, tail
 
     def new_filename(self, image_object):
@@ -36,6 +36,19 @@ class Rename:
         
         except:
             return None
+
+    def rename(self, file_dict):
+        while os.path.isfile(file_dict['target_name']):
+            file_dict['number_of_copy'] = file_dict['number_of_copy'] + 1
+            file_dict['new_tail'] = file_dict['new_filename'] + '~' + str(file_dict['number_of_copy']) + file_dict['file_ext']
+            file_dict['target_name'] = os.path.join(file_dict['head'], file_dict['new_tail'])
+
+        if os.path.isfile(file_dict['source_name']):
+            os.rename(file_dict['source_name'], file_dict['target_name'])
+            print(F"{file_dict['tail']} -> {file_dict['new_tail']}") # green
+
+        else:
+            print(F"{file_dict['tail']} was not found")# print red
 
     def collect_files(self,path_to_files):
         for root, dirnames, file_list in os.walk(path_to_files):
