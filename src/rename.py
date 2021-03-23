@@ -21,7 +21,7 @@ class Rename:
     def get_file_data(self, source_name):
         head, tail = os.path.split(source_name)
         filename, file_ext = os.path.splitext(tail)
-
+        
         return head, file_ext, filename, tail
 
     def new_filename(self, image_object):
