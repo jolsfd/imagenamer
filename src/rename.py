@@ -47,6 +47,18 @@ class Rename:
 
         return file_dict
 
+    def exif_filename(self, image_exif):
+        try:
+            datetime = image_exif.datetime_original.replace(':','').replace(' ',self.settings['space_letter'])
+            model = image_exif.model.replace(' ','')
+
+            new_filename = self.settings['safe_string'] + self.settings['space_letter'] + datetime + self.settings['space_letter'] + model
+
+            return new_filename
+
+        except:
+            return None
+
     def rename(self, file_dict):
         while os.path.isfile(file_dict['target_name']):
             file_dict['number_of_copy'] = file_dict['number_of_copy'] + 1
