@@ -121,12 +121,25 @@ class Rename:
             image_exif = Image(image)
 
         if image_exif.has_exif:
+            file_dict['new_filename'] = self.exif_filename(image_exif)
 
+            if file_dict['new_filename'] != None:
+                file_dict['new_tail'] = file_dict['new_filename'] + file_dict['file_ext']
+                file_dict['target_name'] = os.path.join(file_dict['head'], file_dict['new_tail'])
 
-            self.rename(file_dict)
+                #if self.settings['raw_rename]:
+
+                self.rename(file_dict)
+
+            else:
+                print(F"{file_dict['tail']} has no datetime and model exif tags")
 
         else:
             print(F"{file_dict['tail']} has no exif data")
+
+        #delete variables for free memory space
+        del file_dict
+        del image_exif
 
     def rename_images(self):
         for source_name in self.image_list:
