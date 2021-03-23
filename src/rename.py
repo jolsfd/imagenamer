@@ -68,8 +68,8 @@ class Rename:
                 # Rename file
                 if os.path.isfile(target_name):
                     print(F'{new_tail} exists already') # TODO: Better copy renaming
-                    file_name = self.rename_image_copy(target_name,1)
-                    print(F'{tail} -> {os.path.split(file_name)[1]}')
+                    #file_name = self.rename_image_copy(target_name,1)
+                    #print(F'{tail} -> {os.path.split(file_name)[1]}')
 
                 elif os.path.isfile(source_name) and not os.path.isfile(target_name):
                     os.rename(source_name, target_name)
