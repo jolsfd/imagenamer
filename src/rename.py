@@ -6,7 +6,7 @@ class Rename:
         self.settings = settings
         self.image_list = []
         self.raw_list = []
-        self.image_dict_template = {
+        self.file_dict_template = {
             'source_name' : '',
             'target_name' : '',
             'head' : '',
