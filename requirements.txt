@@ -1,0 +1,6 @@
+colorama==0.4.4
+exif==1.2.0
+pkg-resources==0.0.0
+plum-py==0.3.1
+pycodestyle==2.6.0
+toml==0.10.2
