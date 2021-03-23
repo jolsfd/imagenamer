@@ -114,6 +114,20 @@ class Rename:
                 else:
                     print(F'{tail} was not found') # print red
 
+    def raw_rename(self, source_name, image_filename, new_image_filename):
+        file_dict = self.build_file_dict(source_name)
+
+        if file_dict['filename'] == image_filename:
+            file_dict['new_filename'] = new_image_filename
+            file_dict['new_tail'] = file_dict['new_filename'] + file_dict['file_ext']
+            file_dict['target_name'] = os.path.join(file_dict['head'], file_dict['new_tail'])
+
+            self.rename(file_dict)
+
+            self.raw_list.remove((source_name))
+
+        del file_dict
+
     def rename_image(self, source_name):
         file_dict = self.build_file_dict(source_name)
 
