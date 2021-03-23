@@ -25,7 +25,8 @@ class Menu:
 
             if user_input == 'y':
                 self.rename_object.rename_images()
-                self.rename_object.clear()
+                
+        self.rename_object.clear()
 
     def new_settings(self):
         print('Enter new settings. If you do not want to change press "Enter"')
