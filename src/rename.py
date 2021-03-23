@@ -102,6 +102,20 @@ class Rename:
                 else:
                     print(F'{tail} was not found') # print red
 
+    def rename_image(self, source_name):
+        file_dict = self.build_file_dict(source_name)
+
+        with open(source_name, 'rb') as image:
+            image_exif = Image(image)
+
+        if image_exif.has_exif:
+
+
+            self.rename(file_dict)
+
+        else:
+            print(F"{file_dict['tail']} has no exif data")
+
     def rename_images(self):
         for source_name in self.image_list:
             head, file_ext, filename, tail = self.get_file_data(source_name)
