@@ -6,7 +6,7 @@ class Settings:
         self.path_to_settings = path_to_settings
         self.settings_template = {
             'safe_string':'IMG',
-            'image_ext':['.jpg'],
+            'image_ext':['.jpg','.JPG'],
             'space_letter':'_',
             'raw_rename':True,
             'raw_ext':['.raw']
