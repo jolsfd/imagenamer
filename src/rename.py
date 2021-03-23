@@ -142,7 +142,8 @@ class Rename:
                 file_dict['new_tail'] = file_dict['new_filename'] + file_dict['file_ext']
                 file_dict['target_name'] = os.path.join(file_dict['head'], file_dict['new_tail'])
 
-                #if self.settings['raw_rename']:
+                if self.settings['raw_rename']:
+                    self.rename_raws(file_dict['filename'], file_dict['new_filename'])
 
                 self.rename(file_dict)
 
