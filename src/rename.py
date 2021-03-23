@@ -18,24 +18,24 @@ class Rename:
             'number_of_copy' : 1
         }
 
-    def get_file_data(self, source_name):
-        head, tail = os.path.split(source_name)
-        filename, file_ext = os.path.splitext(tail)
-
-        return head, file_ext, filename, tail
-
-    def new_filename(self, image_object):
-        try:
-            space_letter = self.settings['space_letter']
-            datetime = image_object.datetime_original.replace(':','').replace(' ',space_letter)
-            model = image_object.model.replace(' ','')
-
-            new_filename = self.settings['safe_string'] + space_letter + datetime + space_letter + model
-
-            return new_filename
-        
-        except:
-            return None
+#    def get_file_data(self, source_name):
+#        head, tail = os.path.split(source_name)
+#        filename, file_ext = os.path.splitext(tail)
+#
+#        return head, file_ext, filename, tail
+#
+#    def new_filename(self, image_object):
+#        try:
+#            space_letter = self.settings['space_letter']
+#            datetime = image_object.datetime_original.replace(':','').replace(' ',space_letter)
+#            model = image_object.model.replace(' ','')
+#
+#            new_filename = self.settings['safe_string'] + space_letter + datetime + space_letter + model
+#
+#            return new_filename
+#        
+#        except:
+#            return None
 
     def build_file_dict(self, source_name):
         file_dict = self.file_dict_template
@@ -92,27 +92,27 @@ class Rename:
 
         return len(self.image_list), len(self.raw_list)
 
-    def raw_rename(self, image_filename, new_filename):
-        for source_name in self.raw_list:
-            head, file_ext, filename, tail = self.get_file_data(source_name)
-
-            if filename == image_filename:
-                new_tail = new_filename + file_ext
-                target_name = os.path.join(head, new_tail)
-            
-                # Rename file
-                if os.path.isfile(target_name):
-                    print(F'{new_tail} exists already') # TODO: Better copy renaming
-                    #file_name = self.rename_image_copy(target_name,1)
-                    #print(F'{tail} -> {os.path.split(file_name)[1]}')
-
-                elif os.path.isfile(source_name) and not os.path.isfile(target_name):
-                    os.rename(source_name, target_name)
-                    self.raw_list.remove(source_name)
-                    print(F'{tail} -> {new_tail}')
-
-                else:
-                    print(F'{tail} was not found') # print red
+#    def raw_rename(self, image_filename, new_filename):
+#        for source_name in self.raw_list:
+#            head, file_ext, filename, tail = self.get_file_data(source_name)
+#
+#            if filename == image_filename:
+#                new_tail = new_filename + file_ext
+#                target_name = os.path.join(head, new_tail)
+#            
+#                # Rename file
+#                if os.path.isfile(target_name):
+#                    print(F'{new_tail} exists already') # TODO: Better copy renaming
+#                    #file_name = self.rename_image_copy(target_name,1)
+#                    #print(F'{tail} -> {os.path.split(file_name)[1]}')
+#
+#                elif os.path.isfile(source_name) and not os.path.isfile(target_name):
+#                    os.rename(source_name, target_name)
+#                    self.raw_list.remove(source_name)
+#                    print(F'{tail} -> {new_tail}')
+#
+#                else:
+#                    print(F'{tail} was not found') # print red
 
     def rename_raws(self, image_filename, new_image_filename):
         for source_name in self.raw_list:
@@ -157,42 +157,42 @@ class Rename:
         del file_dict
         del image_exif
 
-    def rename_images(self):
-        for source_name in self.image_list:
-            head, file_ext, filename, tail = self.get_file_data(source_name)
-    
-            with open(source_name, 'rb') as image:
-                image_object = Image(image)
-
-            if image_object.has_exif:
-                # Build new file data
-                number_of_copy = 1
-                new_filename = self.new_filename(image_object)
-
-                if new_filename == None:
-                    print(F'{tail} has no datetime and model exif')
-                    continue
-
-                new_tail = new_filename + file_ext
-                target_name = os.path.join(head, new_tail)
-
-                if self.settings['raw_rename']:
-                    self.raw_rename(filename, new_filename)
-
-                while os.path.isfile(target_name):
-                    number_of_copy = number_of_copy + 1
-                    new_tail = new_filename + '~' + str(number_of_copy) + file_ext
-                    target_name = os.path.join(head, new_tail)
-
-                if os.path.isfile(source_name) and not os.path.isfile(target_name):
-                    os.rename(source_name, target_name)
-                    print(F'{tail} -> {new_tail}') # green
-
-                else:
-                    print(F'{tail} was not found')# print red
-
-            else:
-                print(F'{tail} has no exif') # red
+#    def rename_images(self):
+#       for source_name in self.image_list:
+#            head, file_ext, filename, tail = self.get_file_data(source_name)
+#    
+#            with open(source_name, 'rb') as image:
+#                image_object = Image(image)
+#
+#            if image_object.has_exif:
+#                # Build new file data
+#                number_of_copy = 1
+#                new_filename = self.new_filename(image_object)
+#
+#                if new_filename == None:
+#                    print(F'{tail} has no datetime and model exif')
+#                    continue
+#
+#                new_tail = new_filename + file_ext
+#                target_name = os.path.join(head, new_tail)
+#
+#                if self.settings['raw_rename']:
+#                    self.raw_rename(filename, new_filename)
+#
+#                while os.path.isfile(target_name):
+#                    number_of_copy = number_of_copy + 1
+#                    new_tail = new_filename + '~' + str(number_of_copy) + file_ext
+#                    target_name = os.path.join(head, new_tail)
+#
+#                if os.path.isfile(source_name) and not os.path.isfile(target_name):
+#                    os.rename(source_name, target_name)
+#                    print(F'{tail} -> {new_tail}') # green
+#
+#               else:
+#                    print(F'{tail} was not found')# print red
+#
+#            else:
+#                print(F'{tail} has no exif') # red
 
     def clear(self):
         self.image_list = []
