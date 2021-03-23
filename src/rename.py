@@ -6,6 +6,17 @@ class Rename:
         self.settings = settings
         self.image_list = []
         self.raw_list = []
+        self.image_dict_template = {
+            'source_name' : '',
+            'target_name' : '',
+            'head' : '',
+            'file_ext' : '',
+            'filename' : '',
+            'new_filename' : '',
+            'tail' : '',
+            'new_tail' : '',
+            'number_of_copy' : 1
+        }
 
     def get_file_data(self, source_name):
         head, tail = os.path.split(source_name)
