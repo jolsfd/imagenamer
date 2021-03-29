@@ -18,7 +18,7 @@ def run():
     print('Version 0.0.0')    
 
     while running:
-        print('Type rename, help, settings, quit')
+        print('Type "rename", "help", "settings", "quit"')
         user_input = input('>>>')
 
         if user_input == 'rename':
