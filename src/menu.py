@@ -85,6 +85,7 @@ class Menu:
 
         # Print new settings
         print(
+            "\n"
             F"Safe String: {new_settings['safe_string']}\n"
             F"Space letter: {new_settings['space_letter']}\n"
             F"Image extensions: {new_settings['image_ext']}\n"
