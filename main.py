@@ -15,7 +15,7 @@ def run():
         print('error in settings')
         running = False
 
-    print('Version 0.0.0')    
+    print('Version 1.0')    
 
     while running:
         print('Type "rename", "help", "settings", "quit"')
