@@ -43,7 +43,7 @@ class Menu:
             raw_rename_input = input(F'Do you want to enable raw renaming ? [y/n]')
 
         else:
-            raw_rename_input = input(F'Do you want to diable raw renaming ? [y/n]')
+            raw_rename_input = input(F'Do you want to diasble raw renaming ? [y/n]')
 
         # Make new settings
         new_settings = self.settings
