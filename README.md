@@ -36,15 +36,11 @@ Windows
 > py.exe ./imagenamer/main.py
 > ```
 
-````
-
 Linux
 
 > ```
 > ./imagenamer/imagenamer
 > ```
-
-````
 
 ## Usage
 
