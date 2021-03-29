@@ -102,10 +102,10 @@ class Menu:
             self.settings_objects.save_settings(new_settings)
             self.rename_object.update_settings(new_settings)
 
-            print(F'New settings have been saved successfully.')
+            print(F'New settings have been saved successfully.\n')
 
         else:
-            print(F'New settings were not saved.')
+            print(F'New settings were not saved.\n')
 
     def help(self):
         print(
