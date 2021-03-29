@@ -28,18 +28,18 @@ py.exe -m pip install requirements.txt
 
 ## Run
 
-Execute the main.py.
+Navigate Info the imagenamer folder and execute main.py.
 
 Windows
 
 > ```
-> py.exe ./imagenamer/main.py
+> py.exe ./main.py
 > ```
 
 Linux
 
 > ```
-> ./imagenamer/imagenamer
+> ./imagenamer
 > ```
 
 ## Usage
