@@ -23,7 +23,7 @@ Open Powershell or cmd and navigate to in the imagenamer folder.
 Run this command for installing the required libaries.
 
 ```
-py.exe -m pip install requirements.txt
+py.exe -m pip install -r requirements.txt
 ```
 
 ## Run
