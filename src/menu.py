@@ -109,7 +109,7 @@ class Menu:
     def help(self):
         print(
             F'"rename" - renames all images in a folder structure\n'
-            F'"settings" - change settings'
-            F'"quit" - quits the application'
-            F'For more Help please visit https://github.com/jolsfd/imagenamer/'
+            F'"settings" - change settings\n'
+            F'"quit" - quits the application\n'
+            F'For more Help please visit https://github.com/jolsfd/imagenamer/ \n'
             )
