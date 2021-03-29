@@ -11,7 +11,7 @@ class Menu:
         self.rename_object = Rename(self.settings)
 
     def rename(self):
-        path = input('Please input a path')
+        path = input('Please input a path: ')
         
         if '\\' in path:
             path = path.replace('\\','/')
