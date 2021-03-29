@@ -39,7 +39,7 @@ class Menu:
         del_image_extension = input(F'Remove image extension:')
         del_raw_extension = input(F'Remove raw extension: ')
 
-        if self.settings['raw_renaming'] == False:
+        if self.settings['raw_rename'] == False:
             raw_rename_input = input(F'Do you want to enable raw renaming ? [y/n]')
 
         else:
