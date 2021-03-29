@@ -107,4 +107,9 @@ class Menu:
             print(F'New settings were not saved.')
 
     def help(self):
-        print('Please visit https://github.com/jolsfd/imagenamer/')
+        print(
+            F'"rename" - renames all images in a folder structure\n'
+            F'"settings" - change settings'
+            F'"quit" - quits the application'
+            F'For more Help please visit https://github.com/jolsfd/imagenamer/'
+            )
