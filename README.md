@@ -57,8 +57,15 @@ Command (bash script):
 ## Usage
 
 This program renames all images in a directory into a specific format.
+Example: IMG_20201203_101036_Pixel3a.jpg
 
-> Format: SAFESTRING_DATETIME_CAMERA_MODEL.jpg
+Format:
+
+> Safe string: IMG
+> Date: 20201203
+> Time: 101036
+> Camera model: Pixel3a
+> Space letter: \_
 
 The program also renames raw images. The requirement for that is the same filename before renaming.
 
