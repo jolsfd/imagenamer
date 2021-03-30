@@ -1,5 +1,6 @@
 import os
 from exif import Image
+from colorama import Fore, Back, Style
 
 class Rename:
     def __init__(self, settings):
@@ -60,10 +61,10 @@ class Rename:
 
         if os.path.isfile(file_dict['source_name']):
             os.rename(file_dict['source_name'], file_dict['target_name'])
-            print(F"{file_dict['tail']} -> {file_dict['new_tail']}") # green
+            print(Fore.GREEN + F"{file_dict['tail']} -> {file_dict['new_tail']}" + Fore.RESET)
 
         else:
-            print(F"{file_dict['tail']} was not found")# print red
+            print(Fore.RED + F"{file_dict['tail']} was not found" + Fore.RESET)
 
     def collect_files(self,path_to_files):
         for root, dirnames, file_list in os.walk(path_to_files):
@@ -141,10 +142,10 @@ class Rename:
                 self.rename(image_dict)
 
             else:
-                print(F"{image_dict['tail']} has no datetime and model exif tags")
+                print(Fore.RED + F"{image_dict['tail']} has no datetime and model exif tags" + Fore.RESET)
 
         else:
-            print(F"{image_dict['tail']} has no exif data")
+            print(Fore.RED + F"{image_dict['tail']} has no exif data" + Fore.RESET)
 
         #delete variables for free memory space
         del image_dict
