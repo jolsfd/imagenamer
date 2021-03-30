@@ -19,8 +19,6 @@ def run():
     else:
         running = False
 
-    print("Version 1.0")
-
     while running:
         print(
             f"\nType "
