@@ -108,8 +108,7 @@ class Menu:
 
     def help(self):
         print(
-            "\n"
-            + Fore.BLUE
+            Fore.BLUE
             + f'"rename"'
             + Fore.RESET
             + f" - renames all images in a folder structure\n"
