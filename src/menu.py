@@ -3,6 +3,7 @@ from src.settings import Settings
 from src.rename import Rename
 from colorama import Fore, Back, Style
 
+
 class Menu:
     def __init__(self, path_to_settings):
         self.settings_objects = Settings(path_to_settings)
@@ -11,106 +12,110 @@ class Menu:
         self.rename_object = Rename(self.settings)
 
     def rename(self):
-        path = input('Please input a path: ')
-        
-        if '\\' in path:
-            path = path.replace('\\','/')
+        path = input("Please input a path: ")
+
+        if "\\" in path:
+            path = path.replace("\\", "/")
 
         if os.path.exists(path):
             number_of_images, number_of_raws = self.rename_object.collect_files(path)
 
-            print(F'Rename {number_of_images} images and {number_of_raws} raws')
+            print(f"Rename {number_of_images} images and {number_of_raws} raws")
 
-            user_input = input('Yes/No [y/n]')
+            user_input = input("Yes/No [y/n]")
 
-            if user_input == 'y':
+            if user_input == "y":
                 self.rename_object.rename_images()
-                
+
         self.rename_object.clear()
 
     def new_settings(self):
-        print(F'Enter new settings. If you do not want to change press "Enter"')
+        print(f'Enter new settings. If you do not want to change press "Enter"')
 
         # Get new attributes from user
-        new_safe_string = input(F'New safe string: ')
-        new_space_letter = input(F'New space letter: ')
-        add_image_extension = input(F'Add new image extension: ')
-        add_raw_extension = input(F'Add new raw extension: ')
-        del_image_extension = input(F'Remove image extension:')
-        del_raw_extension = input(F'Remove raw extension: ')
+        new_safe_string = input(f"New safe string: ")
+        new_space_letter = input(f"New space letter: ")
+        add_image_extension = input(f"Add new image extension: ")
+        add_raw_extension = input(f"Add new raw extension: ")
+        del_image_extension = input(f"Remove image extension:")
+        del_raw_extension = input(f"Remove raw extension: ")
 
-        if self.settings['raw_rename'] == False:
-            raw_rename_input = input(F'Do you want to enable raw renaming ? [y/n]')
+        if self.settings["raw_rename"] == False:
+            raw_rename_input = input(f"Do you want to enable raw renaming ? [y/n]")
 
         else:
-            raw_rename_input = input(F'Do you want to diasble raw renaming ? [y/n]')
+            raw_rename_input = input(f"Do you want to diasble raw renaming ? [y/n]")
 
         # Make new settings
         new_settings = self.settings
 
         # Change attributes in new settings
-        if raw_rename_input == 'y':
+        if raw_rename_input == "y":
 
-            if self.settings['raw_rename'] == False:
-                new_settings['raw_rename'] = True
+            if self.settings["raw_rename"] == False:
+                new_settings["raw_rename"] = True
 
             else:
-                new_settings['raw_rename'] = False
+                new_settings["raw_rename"] = False
 
         if len(new_safe_string) > 0:
-            new_settings['safe_string'] = new_safe_string
+            new_settings["safe_string"] = new_safe_string
 
         if len(new_space_letter) > 0:
-            new_settings['space_letter'] = new_space_letter
+            new_settings["space_letter"] = new_space_letter
 
         if len(add_image_extension) > 0:
-            new_settings['image_ext'].append(add_image_extension)
+            new_settings["image_ext"].append(add_image_extension)
 
         if len(add_raw_extension) > 0:
-            new_settings['raw_ext'].append(add_raw_extension)
+            new_settings["raw_ext"].append(add_raw_extension)
 
         if len(del_image_extension) > 0:
             try:
-                new_settings['image_ext'].remove(del_image_extension)
+                new_settings["image_ext"].remove(del_image_extension)
 
             except ValueError:
                 pass
 
         if len(del_raw_extension) > 0:
             try:
-                new_settings['raw_ext'].remove(del_raw_extension)
-            
+                new_settings["raw_ext"].remove(del_raw_extension)
+
             except ValueError:
                 pass
 
         # Print new settings
         print(
             "\n"
-            F"Safe String: {new_settings['safe_string']}\n"
-            F"Space letter: {new_settings['space_letter']}\n"
-            F"Image extensions: {new_settings['image_ext']}\n"
-            F"Raw extensions: {new_settings['raw_ext']}\n"
-            F"Raw renaming: {new_settings['raw_rename']}\n"
+            f"Safe String: {new_settings['safe_string']}\n"
+            f"Space letter: {new_settings['space_letter']}\n"
+            f"Image extensions: {new_settings['image_ext']}\n"
+            f"Raw extensions: {new_settings['raw_ext']}\n"
+            f"Raw renaming: {new_settings['raw_rename']}\n"
         )
 
         # Confirm new settings
-        confirm = input(F'Do you confirm settings ? [y/n]')
+        confirm = input(f"Do you confirm settings ? [y/n]")
 
-        if confirm == 'y':
+        if confirm == "y":
 
             # Save new settings into json file
             self.settings_objects.save_settings(new_settings)
             self.rename_object.update_settings(new_settings)
 
-            print(Fore.GREEN + F'New settings have been saved successfully.\n' + Fore.RESET)
+            print(
+                Fore.GREEN
+                + f"New settings have been saved successfully.\n"
+                + Fore.RESET
+            )
 
         else:
-            print(Fore.RED + F'New settings were not saved.\n' + Fore.RESET)
+            print(Fore.RED + f"New settings were not saved.\n" + Fore.RESET)
 
     def help(self):
         print(
-            F'"rename" - renames all images in a folder structure\n'
-            F'"settings" - change settings\n'
-            F'"quit" - quits the application\n'
-            F'For more Help please visit https://github.com/jolsfd/imagenamer/ \n'
-            )
+            f'"rename" - renames all images in a folder structure\n'
+            f'"settings" - change settings\n'
+            f'"quit" - quits the application\n'
+            f"For more Help please visit https://github.com/jolsfd/imagenamer/ \n"
+        )
