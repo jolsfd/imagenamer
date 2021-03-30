@@ -26,6 +26,12 @@ The script installs the required libaries into your python enviroment.
 ./setup/setup.sh
 ```
 
+or
+
+```
+python3 -m pip install -r requirements.txt
+```
+
 ## Run
 
 ### Windows
