@@ -23,7 +23,7 @@ Navigate into the imagenamer folder and run the build.sh file in the setup folde
 The script installs the required libaries into your python enviroment.
 
 ```bash
-./setup/build.sh
+./setup/setup.sh
 ```
 
 ## Run
