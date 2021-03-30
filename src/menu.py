@@ -1,7 +1,7 @@
 import os
 from src.settings import Settings
 from src.rename import Rename
-import os
+from colorama import Fore, Back, Style
 
 class Menu:
     def __init__(self, path_to_settings):
@@ -102,10 +102,10 @@ class Menu:
             self.settings_objects.save_settings(new_settings)
             self.rename_object.update_settings(new_settings)
 
-            print(F'New settings have been saved successfully.\n')
+            print(Fore.GREEN + F'New settings have been saved successfully.\n' + Fore.RESET)
 
         else:
-            print(F'New settings were not saved.\n')
+            print(Fore.RED + F'New settings were not saved.\n' + Fore.RESET)
 
     def help(self):
         print(
