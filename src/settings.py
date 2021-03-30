@@ -1,6 +1,6 @@
 import os, json
+from colorama import Fore, Back, Style
 
-# TODO output with color
 class Settings:
     def __init__(self, path_to_settings):
         self.path_to_settings = path_to_settings
@@ -20,10 +20,10 @@ class Settings:
 
             json_file.close()
 
-            print('Saved Changes into json file.')
+            print(Fore.GREEN + F'Saved Changes into json file.' + Fore.RESET)
 
         except:
-            print('Settings could not be saved') # print red
+            print(Fore.RED + F'Settings could not be saved' + Fore.RESET)
 
     def load_settings(self):
         try:
@@ -59,10 +59,9 @@ class Settings:
                 error = True
 
         except AttributeError:
-            print('Could not find all Settings. Please visit https://github.com/jolsfd/imagenamer') # print red
             error = True
 
         if error:
-            print('Error in settings. Please visit https://github.com/jolsfd/imagenamer') # print red
+            print(Fore.RED + F'Error in settings. Please visit https://github.com/jolsfd/imagenamer' + Fore.RESET)
 
         return error
