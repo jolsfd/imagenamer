@@ -23,19 +23,19 @@ def run():
 
     while running:
         print(
-            f"\nType"
+            f"\nType "
             + Fore.BLUE
             + f'"rename"'
             + Fore.RESET
-            + ","
+            + ", "
             + Fore.BLUE
             + f'"help"'
             + Fore.RESET
-            + ","
+            + ", "
             + Fore.BLUE
             + f'"settings"'
             + Fore.RESET
-            + ","
+            + ", "
             + Fore.BLUE
             + f'"quit"'
             + Fore.RESET
