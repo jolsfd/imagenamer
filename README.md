@@ -59,7 +59,7 @@ Command (bash script):
 This program renames all images in a directory into a specific format.
 Example: IMG_20201203_101036_Pixel3a.jpg
 
-### Format:
+### Format
 
 Safe string:
 
