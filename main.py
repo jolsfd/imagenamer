@@ -12,13 +12,12 @@ def run():
         running = True
 
     else:
-        print('error in settings')
         running = False
 
     print('Version 1.0')    
 
     while running:
-        print('Type "rename", "help", "settings", "quit"')
+        print(F'\nType "rename", "help", "settings", "quit"')
         user_input = input('>>> ')
 
         if user_input == 'rename':
