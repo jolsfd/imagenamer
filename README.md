@@ -8,15 +8,6 @@ Python 3.7 or higher installed.
 
 Extract folder from .zip file into your favorite directory.
 
-### Linux
-
-Navigate into the imagenamer folder and run the build.sh file in the setup folder.
-The script installs the required libaries into your python enviroment.
-
-```bash
-./setup/build.sh
-```
-
 ### Windows
 
 Open Powershell or cmd and navigate to in the imagenamer folder.
@@ -24,6 +15,15 @@ Run this command for installing the required libaries.
 
 ```
 py.exe -m pip install -r requirements.txt
+```
+
+### Linux
+
+Navigate into the imagenamer folder and run the build.sh file in the setup folder.
+The script installs the required libaries into your python enviroment.
+
+```bash
+./setup/build.sh
 ```
 
 ## Run
