@@ -28,18 +28,30 @@ py.exe -m pip install -r requirements.txt
 
 ## Run
 
-Navigate Info the imagenamer folder and execute main.py.
+### Windows
 
-Windows
+Navigate into the imagenamer folder and execute main.py.
+
+Command:
 
 > ```
 > py.exe ./main.py
 > ```
 
-Linux
+### Linux
+
+Navigate Info the imagenamer folder and execute main.py or run the bash script.
+
+Command (python file):
 
 > ```
-> ./imagenamer
+> python3 ./main.py
+> ```
+
+Command (bash script):
+
+> ```
+> ./imagenamer.sh
 > ```
 
 ## Usage
