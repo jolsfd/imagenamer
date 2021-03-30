@@ -103,19 +103,23 @@ class Menu:
             self.settings_objects.save_settings(new_settings)
             self.rename_object.update_settings(new_settings)
 
-            print(
-                Fore.GREEN
-                + f"New settings have been saved successfully.\n"
-                + Fore.RESET
-            )
-
         else:
             print(Fore.RED + f"New settings were not saved.\n" + Fore.RESET)
 
     def help(self):
         print(
-            f'"rename" - renames all images in a folder structure\n'
-            f'"settings" - change settings\n'
-            f'"quit" - quits the application\n'
-            f"For more Help please visit https://github.com/jolsfd/imagenamer/ \n"
+            "\n"
+            + Fore.BLUE
+            + f'"rename"'
+            + Fore.RESET
+            + f" - renames all images in a folder structure\n"
+            + Fore.BLUE
+            + f'"settings"'
+            + Fore.RESET
+            + f" - change settings\n"
+            + Fore.BLUE
+            + f'"quit"'
+            + Fore.RESET
+            + f" - quits the application\n"
+            + f"\nFor more Help please visit https://github.com/jolsfd/imagenamer/"
         )
