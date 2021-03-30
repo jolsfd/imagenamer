@@ -3,6 +3,7 @@
 from os import path
 from src.menu import Menu
 import os
+from colorama import Fore, Back, Style
 
 
 def run():
@@ -21,7 +22,24 @@ def run():
     print("Version 1.0")
 
     while running:
-        print(f'\nType "rename", "help", "settings", "quit"')
+        print(
+            f"\nType"
+            + Fore.BLUE
+            + f'"rename"'
+            + Fore.RESET
+            + ","
+            + Fore.BLUE
+            + f'"help"'
+            + Fore.RESET
+            + ","
+            + Fore.BLUE
+            + f'"settings"'
+            + Fore.RESET
+            + ","
+            + Fore.BLUE
+            + f'"quit"'
+            + Fore.RESET
+        )
         user_input = input(">>> ")
 
         if user_input == "rename":
