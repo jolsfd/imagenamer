@@ -21,21 +21,21 @@ def run():
 
     while running:
         print(
-            f"\nType "
+            f"Type "
             + Fore.BLUE
-            + f'"rename"'
+            + f"rename"
             + Fore.RESET
             + ", "
             + Fore.BLUE
-            + f'"help"'
+            + f"help"
             + Fore.RESET
             + ", "
             + Fore.BLUE
-            + f'"settings"'
+            + f"settings"
             + Fore.RESET
             + ", "
             + Fore.BLUE
-            + f'"quit"'
+            + f"quit"
             + Fore.RESET
         )
         user_input = input(">>> ")
