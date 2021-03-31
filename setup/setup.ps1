@@ -1,3 +1,5 @@
+# Only for WINDOWS
+
 # Uncomment for virtual enviroment
 #venv\Scripts\activate.ps1
 
