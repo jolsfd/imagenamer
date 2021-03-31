@@ -120,5 +120,7 @@ class Menu:
             + f'"quit"'
             + Fore.RESET
             + f" - quits the application\n"
-            + f"\nFor more Help please visit https://github.com/jolsfd/imagenamer/"
+            + Fore.LIGHTMAGENTA_EX
+            + f"\nFor more Help please visit https://github.com/jolsfd/imagenamer/ \n"
+            + Fore.RESET
         )
