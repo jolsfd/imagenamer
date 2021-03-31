@@ -21,10 +21,10 @@ class Settings:
 
             json_file.close()
 
-            print(Fore.GREEN + f"Saved Changes into json file." + Fore.RESET)
+            print(Fore.GREEN + f"Saved Changes into json file.\n" + Fore.RESET)
 
         except:
-            print(Fore.RED + f"Settings could not be saved" + Fore.RESET)
+            print(Fore.RED + f"Settings could not be saved\n" + Fore.RESET)
 
     def load_settings(self):
         try:
@@ -65,7 +65,7 @@ class Settings:
         if error:
             print(
                 Fore.RED
-                + f"Error in settings. Please visit https://github.com/jolsfd/imagenamer"
+                + f"Error in settings. Please visit https://github.com/jolsfd/imagenamer \n"
                 + Fore.RESET
             )
 
