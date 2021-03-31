@@ -3,10 +3,13 @@
 from os import path
 from src.menu import Menu
 import os
-from colorama import Fore, Back, Style
+from colorama import init, Fore, Back, Style
 
 
 def run():
+    # enable color on windows
+    init()
+
     path_to_settings = (
         os.path.join(os.path.dirname(os.path.abspath(__file__)))
         + "/settings/settings.json"
