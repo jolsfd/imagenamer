@@ -35,7 +35,7 @@ class Menu:
         # Get new attributes from user
         new_safe_string = input(f"New safe string: ")
         new_space_letter = input(f"New space letter: ")
-        print(Fore.CYAN + f"All Extensions with dot !" + Fore.RESET)
+        print(Fore.CYAN + f"All Extensions with dot!" + Fore.RESET)
         add_image_extension = input(f"Add new image extension: ")
         add_raw_extension = input(f"Add new raw extension: ")
         del_image_extension = input(f"Remove image extension:")
