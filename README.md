@@ -32,6 +32,8 @@ Your structure should look like this:
 
 ### Windows
 
+Folder: _imagenamer/setup/_
+
 Open Powershell and navigate to the imagenamer folder and execute the **setup.ps1** file.
 
 Or run followed command:
@@ -41,6 +43,8 @@ py.exe -m pip install -r requirements.txt
 ```
 
 ### Linux
+
+Folder: _imagenamer/setup_
 
 Navigate into the imagenamer folder and execute the **setup.sh** file in the setup folder.
 
@@ -54,6 +58,8 @@ python3 -m pip install -r requirements.txt
 
 ### Windows
 
+Folder: _imagenamer/_
+
 Navigate into the imagenamer folder and execute main.py or run **imagenamer.ps1** (double click).
 
 Command (POWERSHELL):
@@ -63,6 +69,8 @@ Command (POWERSHELL):
 > ```
 
 ### Linux
+
+Folder: _imagenamer/_
 
 Navigate Info the imagenamer folder and execute main.py or run **imagenamer.sh** (double click).
 
