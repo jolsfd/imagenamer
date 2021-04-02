@@ -50,6 +50,12 @@ class Menu:
         else:
             raw_rename_input = input(f"Do you want to diasble raw renaming ? [y/n]")
 
+        if self.settings["safe_rename"] == False:
+            safe_rename_input = input(f"Do you want to enable Safe Rename ? [y/n]")
+
+        else:
+            safe_rename_input = input(f"Do you want to diasble Safe Rename ? [y/n]")
+
         # Make new settings
         new_settings = self.settings
 
@@ -61,6 +67,14 @@ class Menu:
 
             else:
                 new_settings["raw_rename"] = False
+
+        if safe_rename_input == "y":
+
+            if self.settings["safe_rename"] == False:
+                new_settings["safe_rename"] = True
+
+            else:
+                new_settings["safe_rename"] = False
 
         if len(new_safe_string) > 0:
             new_settings["safe_string"] = new_safe_string
