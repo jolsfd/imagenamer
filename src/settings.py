@@ -10,6 +10,7 @@ class Settings:
             "image_ext": [".jpg", ".JPG", ".jpeg", ".JPEG"],
             "space_letter": "_",
             "raw_rename": True,
+            "safe_rename": True,
             "raw_ext": [".raw", ".cr2", ".dng"],
         }
 
@@ -51,6 +52,9 @@ class Settings:
                 error = True
 
             if type(settings["raw_rename"]) != type(bool()):
+                error = True
+
+            if type(settings["safe_reanme"]) != type(bool()):
                 error = True
 
             if type(settings["image_ext"]) != type(list()):
