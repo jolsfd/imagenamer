@@ -45,10 +45,10 @@ class Menu:
         del_raw_extension = input(f"Remove raw extension: ")
 
         if self.settings["raw_rename"] == False:
-            raw_rename_input = input(f"Do you want to enable raw renaming ? [y/n]")
+            raw_rename_input = input(f"Do you want to enable Raw Rename ? [y/n]")
 
         else:
-            raw_rename_input = input(f"Do you want to diasble raw renaming ? [y/n]")
+            raw_rename_input = input(f"Do you want to diasble Raw Rename ? [y/n]")
 
         if self.settings["safe_rename"] == False:
             safe_rename_input = input(f"Do you want to enable Safe Rename ? [y/n]")
