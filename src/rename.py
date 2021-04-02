@@ -72,12 +72,14 @@ class Rename:
     def collect_files(self, path_to_files):
         for root, dirnames, file_list in os.walk(path_to_files):
             for file in file_list:
-                # check safe string
-                if (
-                    file[: len(self.settings["safe_string"])]
-                    == self.settings["safe_string"]
-                ):
-                    continue
+                # check safe rename
+                if self.settings["safe_rename"]:
+                    # check safe string
+                    if (
+                        file[: len(self.settings["safe_string"])]
+                        == self.settings["safe_string"]
+                    ):
+                        continue
 
                 # check file extension
                 file_ext = os.path.splitext(file)[1]
