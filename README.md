@@ -75,7 +75,15 @@ Command (BASH):
 ## Usage
 
 This program renames all images in a directory into a specific format.
-Example: IMG_20201203_101036_Pixel3a.jpg
+
+### Safe Rename
+
+When this feature is enabled, the program will only rename images without the safe string.
+
+### Raw Rename
+
+When this feature is enabled, the program names the raw image that belongs to the respective image.
+Works only if the raw image and the image had the same name before they are renamed.
 
 ## Format
 
