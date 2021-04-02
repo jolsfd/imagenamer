@@ -27,6 +27,9 @@ class Menu:
             if user_input == "y":
                 self.rename_object.rename_images()
 
+        else:
+            print(Fore.RED + f"{path} does not exist!" + Fore.RESET)
+
         self.rename_object.clear()
 
     def new_settings(self):
