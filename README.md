@@ -32,7 +32,7 @@ Your structure should look like this:
 
 ### Windows
 
-Open Powershell and navigate to in the imagenamer folder and execute the setup.ps1 file.
+Open Powershell and navigate to in the imagenamer folder and execute the **setup.ps1** file.
 
 Or run followed command:
 
@@ -42,7 +42,7 @@ py.exe -m pip install -r requirements.txt
 
 ### Linux
 
-Navigate into the imagenamer folder and execute the build.sh file in the setup folder.
+Navigate into the imagenamer folder and execute the **setup.sh** file in the setup folder.
 
 Or run followed command:
 
