@@ -32,7 +32,7 @@ Your structure should look like this:
 
 ### Windows
 
-Open Powershell and navigate to in the imagenamer folder and execute the **setup.ps1** file.
+Open Powershell and navigate to the imagenamer folder and execute the **setup.ps1** file.
 
 Or run followed command:
 
