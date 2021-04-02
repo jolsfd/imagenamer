@@ -59,7 +59,7 @@ class Settings:
                 error = True
 
             # safe rename
-            if type(settings["safe_reanme"]) != type(bool()):
+            if type(settings["safe_rename"]) != type(bool()):
                 error = True
 
             # image ext
