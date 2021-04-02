@@ -109,7 +109,7 @@ class Menu:
             f"Space letter: {new_settings['space_letter']}\n"
             f"Image extensions: {new_settings['image_ext']}\n"
             f"Raw extensions: {new_settings['raw_ext']}\n"
-            f"Raw renaming: {new_settings['raw_rename']}\n"
+            f"Raw Rename: {new_settings['raw_rename']}\n"
             f"Safe Rename: {new_settings['safe_rename']} \n"
         )
 
