@@ -110,6 +110,7 @@ class Menu:
             f"Image extensions: {new_settings['image_ext']}\n"
             f"Raw extensions: {new_settings['raw_ext']}\n"
             f"Raw renaming: {new_settings['raw_rename']}\n"
+            f"Safe Rename: {new_settings['safe_rename']} \n"
         )
 
         # Confirm new settings
