@@ -87,7 +87,8 @@ Works only if the raw image and the image had the same name before they are rena
 
 ## Troubleshooting
 
-If you get an error message when starting the program, delete the **settings.json** file in the settings folder.
+If you get an error message when starting the program, delete the **settings.json** file in the settings folder.  
+Else open an issue [here](https://github.com/jolsfd/imagenamer/issues).
 
 ## Format
 
