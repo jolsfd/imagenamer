@@ -44,19 +44,25 @@ class Settings:
     def check_settings(self, settings):
         error = False
 
+        # Check json file
         try:
+            # safe string
             if type(settings["safe_string"]) != type(str()):
                 error = True
 
+            # space letter
             if type(settings["space_letter"]) != type(str()):
                 error = True
 
+            # raw rename
             if type(settings["raw_rename"]) != type(bool()):
                 error = True
 
+            # safe rename
             if type(settings["safe_reanme"]) != type(bool()):
                 error = True
 
+            # image ext
             if type(settings["image_ext"]) != type(list()):
                 error = True
 
@@ -65,6 +71,7 @@ class Settings:
                     if type(imgage_ext) != type(str()):
                         error = True
 
+            # raw ext
             if type(settings["raw_ext"]) != type(list()):
                 error = True
 
