@@ -11,6 +11,7 @@ Run this options for installing the required libaries.
 
 Your structure should look like this:
 
+```bash
 .
 ├── imagenamer.ps1
 ├── imagenamer.sh
@@ -27,6 +28,7 @@ Your structure should look like this:
     ├── menu.py
     ├── rename.py
     └── settings.py
+```
 
 ### Windows
 
