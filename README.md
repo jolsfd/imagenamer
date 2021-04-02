@@ -85,6 +85,10 @@ When this feature is enabled, the program will only rename images without the sa
 When this feature is enabled, the program names the raw image that belongs to the respective image.
 Works only if the raw image and the image had the same name before they are renamed.
 
+## Troubleshooting
+
+If you get an error message when starting the program, delete the **settings.json** file in the settings folder.
+
 ## Format
 
 Safe string:
