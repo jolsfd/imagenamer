@@ -47,17 +47,27 @@ class Settings:
             if type(settings["safe_string"]) != type(str()):
                 error = True
 
-            if type(settings["image_ext"]) != type(list()):
-                error = True
-
             if type(settings["space_letter"]) != type(str()):
                 error = True
 
             if type(settings["raw_rename"]) != type(bool()):
                 error = True
 
+            if type(settings["image_ext"]) != type(list()):
+                error = True
+
+            else:
+                for imgage_ext in settings["image_ext"]:
+                    if type(imgage_ext) != type(str()):
+                        error = True
+
             if type(settings["raw_ext"]) != type(list()):
                 error = True
+
+            else:
+                for raw_ext in settings["raw_ext"]:
+                    if type(raw_ext) != type(str()):
+                        error = True
 
         except AttributeError:
             error = True
