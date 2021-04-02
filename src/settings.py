@@ -83,6 +83,9 @@ class Settings:
         except AttributeError:
             error = True
 
+        except KeyError:
+            error = True
+
         if error:
             print(
                 Fore.RED
