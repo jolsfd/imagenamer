@@ -3,7 +3,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/jolsfd/imagenamer.svg)](https://GitHub.com/jolsfd/imagenamer/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/jolsfd/imagenamer.svg)](https://GitHub.com/jolsfd/imagenamer/pull/)
 ![Size](https://img.shields.io/github/repo-size/jolsfd/imagenamer)
-[![Download](https://img.shields.io/github/downloads/jolsfd/imagenamer/total)](https://github.com/jolsfd/imagenamer/releases)
+[![Download](https://img.shields.io/github/v/release/jolsfd/imagenamer)](https://github.com/jolsfd/imagenamer/releases)
 
 
 # ImageNamer
