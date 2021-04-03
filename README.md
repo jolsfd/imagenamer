@@ -1,3 +1,11 @@
+[![GitHub license](https://img.shields.io/github/license/jolsfd/imagenamer.svg)](https://github.com/jolsfd/imagenamer/blob/main/LICENSE)
+[![GitHub contributors](https://img.shields.io/github/contributors/jolsfd/imagenamer.svg)](https://GitHub.com/jolsfd/imagenamer/graphs/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/jolsfd/imagenamer.svg)](https://GitHub.com/jolsfd/imagenamer/issues/)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/jolsfd/imagenamer.svg)](https://GitHub.com/jolsfd/imagenamer/pull/)
+![Size](https://img.shields.io/github/repo-size/jolsfd/imagenamer)
+[![Download](https://img.shields.io/github/downloads/jolsfd/imagenamer/total)](https://github.com/jolsfd/imagenamer/releases)
+
+
 # ImageNamer
 
 ## Requirements
