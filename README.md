@@ -5,7 +5,6 @@
 ![Size](https://img.shields.io/github/repo-size/jolsfd/imagenamer)
 [![Download](https://img.shields.io/github/v/release/jolsfd/imagenamer)](https://github.com/jolsfd/imagenamer/releases)
 
-
 # ImageNamer
 
 ## Requirements
@@ -100,6 +99,10 @@ When this feature is enabled, the program will only rename images without the sa
 
 When this feature is enabled, the program names the raw image that belongs to the respective image.
 Works only if the raw image and the image had the same name before they are renamed.
+
+### Exclude Folders
+
+Exclude Folders when renaming images. Just give the folder name, not the path or anything else.
 
 ## Troubleshooting
 
