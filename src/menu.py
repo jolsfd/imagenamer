@@ -12,13 +12,25 @@ class Menu:
         self.rename_object = Rename(self.settings)
 
     def rename(self):
+        excluded_folders = []
+        exclude_input = " "
+
         path = input("Please input a path: ")
+
+        while len(exclude_input) > 0:
+            exclude_input = input(
+                f'Optional! Exclude folder (Press "ENTER" to skip!) :'
+            )
+            if len(exclude_input) > 0:
+                excluded_folders.append(exclude_input)
 
         if "\\" in path:
             path = path.replace("\\", "/")
 
         if os.path.exists(path):
-            number_of_images, number_of_raws = self.rename_object.collect_files(path)
+            number_of_images, number_of_raws = self.rename_object.collect_files(
+                path, excluded_folders
+            )
 
             print(f"Rename {number_of_images} images and {number_of_raws} raws")
 
