@@ -19,7 +19,7 @@ class Menu:
 
         while len(exclude_input) > 0:
             exclude_input = input(
-                f'Optional! Exclude folder (Press "ENTER" to skip!) :'
+                f'Optional! Exclude folder (Press "ENTER" to skip!): '
             )
             if len(exclude_input) > 0:
                 excluded_folders.append(exclude_input)
