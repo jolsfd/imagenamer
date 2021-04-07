@@ -69,12 +69,19 @@ class Rename:
         else:
             print(Fore.RED + f"{file_dict['tail']} was not found" + Fore.RESET)
 
-    def collect_files(self, path_to_files):
+    def collect_files(self, path_to_files, excluded_folders):
         for root, dirnames, file_list in os.walk(path_to_files):
+            # Exclude folders
+            for dirname in dirnames:
+                if dirname in excluded_folders:
+                    dirnames.remove(dirname)
+                    print(Fore.RED + f"Exclude folder: {dirname}" + Fore.RESET)
+
+            # Get images
             for file in file_list:
-                # check safe rename
+                # Check safe rename
                 if self.settings["safe_rename"]:
-                    # check safe string
+                    # Check safe string
                     if (
                         file[: len(self.settings["safe_string"])]
                         == self.settings["safe_string"]
