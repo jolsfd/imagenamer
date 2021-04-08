@@ -48,9 +48,13 @@ class Menu:
         print(f'Enter new settings. If you do not want to change press "Enter"')
 
         # Get new attributes from user
-        new_safe_string = input(f"New safe string: ")
-        new_space_letter = input(f"New space letter: ")
-        print(Fore.CYAN + f"All Extensions with dot!" + Fore.RESET)
+        print(f'Current format: {self.settings["format"]}')
+        print(
+            f'"$Y": Year ; "$M": Month ; "$D": Day ; "$h": Hour ; "$m": Minute ; "$s": Seconds ; "MODEL": Camera Model'
+        )
+        new_format = input(f"Enter new file format:")
+
+        print(Fore.CYAN + f"\nAll Extensions with dot!" + Fore.RESET)
         add_image_extension = input(f"Add new image extension: ")
         add_raw_extension = input(f"Add new raw extension: ")
         del_image_extension = input(f"Remove image extension:")
@@ -88,11 +92,8 @@ class Menu:
             else:
                 new_settings["safe_rename"] = False
 
-        if len(new_safe_string) > 0:
-            new_settings["safe_string"] = new_safe_string
-
-        if len(new_space_letter) > 0:
-            new_settings["space_letter"] = new_space_letter
+        if len(new_format) > 0:
+            new_settings["format"] = new_format
 
         if len(add_image_extension) > 0:
             new_settings["image_ext"].append(add_image_extension)
