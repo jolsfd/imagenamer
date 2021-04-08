@@ -117,21 +117,14 @@ Safe string:
 
 Date:
 
-> 20201203
+**$Y**: Year; **$M**: Month; **$D**: Day; **$h**: Hour; **$m**: Minutes; **$s**: seconds; **MODEL**: Camera Model;
 
-Time:
+With that tags you can create your personal file format.
+For Example the standard format:
 
-> 101036
-
-Camera model:
-
-> Pixel3a
-
-Space letter:
-
-> \_
-
-The program also renames raw images. The requirement for that is the same filename before renaming.
+```
+IMG_$Y$M$D_$h$m$s_MODEL
+```
 
 ## License
 
