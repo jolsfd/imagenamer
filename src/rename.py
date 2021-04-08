@@ -47,12 +47,12 @@ class Rename:
 
             new_filename = (
                 self.settings["format"]
-                .replace("$Y", datetime_object.year)
-                .replace("$M", datetime_object.month)
-                .replace("$D", datetime_object.day)
-                .replace("$h", datetime_object.hour)
-                .replace("$m", datetime_object.minute)
-                .replace("$s", datetime_object.second)
+                .replace("$Y", str(datetime_object.year))
+                .replace("$M", str(datetime_object.month))
+                .replace("$D", str(datetime_object.day))
+                .replace("$h", str(datetime_object.hour))
+                .replace("$m", str(datetime_object.minute))
+                .replace("$s", str(datetime_object.second))
                 .replace("MODEL", model)
             )
 
