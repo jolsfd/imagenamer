@@ -138,7 +138,7 @@ class Rename:
             image_exif = Image(image)
 
         if image_exif.has_exif:
-            image_dict["new_filename"] = self.exif_filename(image_exif)
+            image_dict["new_filename"] = self.new_filename(image_exif)
 
             if image_dict["new_filename"] != None:
                 image_dict["new_tail"] = (
