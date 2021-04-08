@@ -12,6 +12,7 @@ class Settings:
             "raw_rename": True,
             "safe_rename": True,
             "raw_ext": [".raw", ".cr2", ".dng"],
+            "format": "IMG_$Y$M$D_$h$m$s_MODEL",
         }
 
     def save_settings(self, new_settings):
