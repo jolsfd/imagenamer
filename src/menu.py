@@ -45,7 +45,7 @@ class Menu:
         self.rename_object.clear()
 
     def new_settings(self):
-        print(f'Enter new settings. If you do not want to change press "Enter"')
+        print(f'Enter new settings. If you do not want to change press "Enter"\n')
 
         # Get new attributes from user
         print(f'Current format: {self.settings["format"]}')
