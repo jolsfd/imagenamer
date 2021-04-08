@@ -6,7 +6,7 @@ class Settings:
     def __init__(self, path_to_settings):
         self.path_to_settings = path_to_settings
         self.settings_template = {
-            "safe_string": "IMG",
+            "safe_string": "IMG_",
             "image_ext": [".jpg", ".JPG", ".jpeg", ".JPEG"],
             "space_letter": "_",
             "raw_rename": True,
