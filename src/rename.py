@@ -28,39 +28,35 @@ class Rename:
 
     def exif_data(self, image_exif):
         try:
-            datetime = image_exif.datetime_original.replace(":", "").replace(
-                " ", self.settings["space_letter"]
-            )
+            exif_datetime = image_exif.datetime_original
+            datetime_object = datetime.strptime(exif_datetime, "%Y:%m:%d %H:%M:%S")
+
             model = image_exif.model.replace(" ", "")
 
-            new_filename = (
-                self.settings["safe_string"]
-                + self.settings["space_letter"]
-                + datetime
-                + self.settings["space_letter"]
-                + model
-            )
-
-            return new_filename
+            return datetime_object, model
 
         except:
             return None
 
     def new_filename(self, image_exif):
-        datetime_object, model = self.exif_data(image_exif)
+        if self.exif_data(image_exif) == None:
+            return None
 
-        new_filename = (
-            self.settings["format"]
-            .replace("$Y", datetime_object.year)
-            .replace("$M", datetime_object.month)
-            .replace("$D", datetime_object.day)
-            .replace("$h", datetime_object.hour)
-            .replace("$m", datetime_object.minute)
-            .replace("$s", datetime_object.second)
-            .replace("MODEL", model)
-        )
+        else:
+            datetime_object, model = self.exif_data(image_exif)
 
-        return new_filename
+            new_filename = (
+                self.settings["format"]
+                .replace("$Y", datetime_object.year)
+                .replace("$M", datetime_object.month)
+                .replace("$D", datetime_object.day)
+                .replace("$h", datetime_object.hour)
+                .replace("$m", datetime_object.minute)
+                .replace("$s", datetime_object.second)
+                .replace("MODEL", model)
+            )
+
+            return new_filename
 
     def rename(self, file_dict):
         while os.path.isfile(file_dict["target_name"]):
