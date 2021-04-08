@@ -52,7 +52,7 @@ class Menu:
         print(
             f'"$Y": Year ; "$M": Month ; "$D": Day ; "$h": Hour ; "$m": Minute ; "$s": Seconds ; "MODEL": Camera Model'
         )
-        new_format = input(f"Enter new file format:")
+        new_format = input(f"Enter new file format: ")
 
         print(Fore.CYAN + f"\nAll Extensions with dot!" + Fore.RESET)
         add_image_extension = input(f"Add new image extension: ")
