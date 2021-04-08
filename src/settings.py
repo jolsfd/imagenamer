@@ -8,7 +8,6 @@ class Settings:
         self.settings_template = {
             "safe_string": "IMG_",
             "image_ext": [".jpg", ".JPG", ".jpeg", ".JPEG"],
-            "space_letter": "_",
             "raw_rename": True,
             "safe_rename": True,
             "raw_ext": [".raw", ".cr2", ".dng"],
@@ -52,7 +51,7 @@ class Settings:
                 error = True
 
             # space letter
-            if type(settings["space_letter"]) != type(str()):
+            if type(settings["format"]) != type(str()):
                 error = True
 
             # raw rename
