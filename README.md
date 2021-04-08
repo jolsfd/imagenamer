@@ -111,12 +111,6 @@ Else open an issue [here](https://github.com/jolsfd/imagenamer/issues).
 
 ## Format
 
-Safe string:
-
-> IMG
-
-Date:
-
 **$Y**: Year; **$M**: Month; **$D**: Day; **$h**: Hour; **$m**: Minutes; **$s**: seconds; **MODEL**: Camera Model;
 
 With that tags you can create your personal file format.
@@ -124,6 +118,13 @@ For Example the standard format:
 
 ```
 IMG_$Y$M$D_$h$m$s_MODEL
+```
+
+The program automatically builds the safe string until the first *$*.
+For Example the safe string for the standard format:
+
+```
+IMG_
 ```
 
 ## License
