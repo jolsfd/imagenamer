@@ -95,6 +95,8 @@ class Menu:
         if len(new_format) > 0:
             new_settings["format"] = new_format
 
+            new_settings["safe_string"] = new_format.partition("$")[0]
+
         if len(add_image_extension) > 0:
             new_settings["image_ext"].append(add_image_extension)
 
@@ -118,7 +120,7 @@ class Menu:
         # Print new settings
         print(
             "\n"
-            # f"Safe String: {new_settings['safe_string']}\n"
+            f"Safe String: {new_settings['safe_string']}\n"
             f"File Format: {new_settings['format']}\n"
             f"Image extensions: {new_settings['image_ext']}\n"
             f"Raw extensions: {new_settings['raw_ext']}\n"
