@@ -118,12 +118,12 @@ class Menu:
         # Print new settings
         print(
             "\n"
-            f"Safe String: {new_settings['safe_string']}\n"
-            f"Space letter: {new_settings['space_letter']}\n"
+            # f"Safe String: {new_settings['safe_string']}\n"
+            f"File Format: {new_settings['format']}\n"
             f"Image extensions: {new_settings['image_ext']}\n"
             f"Raw extensions: {new_settings['raw_ext']}\n"
             f"Raw Rename: {new_settings['raw_rename']}\n"
-            f"Safe Rename: {new_settings['safe_rename']} \n"
+            f"Safe Rename: {new_settings['safe_rename']}\n"
         )
 
         # Confirm new settings
