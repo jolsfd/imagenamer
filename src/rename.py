@@ -1,6 +1,7 @@
 import os
 from exif import Image
 from colorama import Fore, Back, Style
+from datetime import datetime
 
 
 class Rename:
@@ -25,7 +26,7 @@ class Rename:
 
         return file_dict
 
-    def exif_filename(self, image_exif):
+    def exif_data(self, image_exif):
         try:
             datetime = image_exif.datetime_original.replace(":", "").replace(
                 " ", self.settings["space_letter"]
@@ -44,6 +45,22 @@ class Rename:
 
         except:
             return None
+
+    def new_filename(self, image_exif):
+        datetime_object, model = self.exif_data(image_exif)
+
+        new_filename = (
+            self.settings["format"]
+            .replace("$Y", datetime_object.year)
+            .replace("$M", datetime_object.month)
+            .replace("$D", datetime_object.day)
+            .replace("$h", datetime_object.hour)
+            .replace("$m", datetime_object.minute)
+            .replace("$s", datetime_object.second)
+            .replace("MODEL", model)
+        )
+
+        return new_filename
 
     def rename(self, file_dict):
         while os.path.isfile(file_dict["target_name"]):
