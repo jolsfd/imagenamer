@@ -83,12 +83,10 @@ class Rename:
             print(Fore.RED + f"{file_dict['tail']} was not found" + Fore.RESET)
 
     def collect_files(self, path_to_files, excluded_folders):
-        for root, dirnames, file_list in os.walk(path_to_files):
+        exclude = set(excluded_folders)
+        for root, dirnames, file_list in os.walk(path_to_files, topdown=True):
             # Exclude folders
-            for dirname in dirnames:
-                if dirname in excluded_folders:
-                    dirnames.remove(dirname)
-                    print(Fore.RED + f"Exclude folder: {dirname}" + Fore.RESET)
+            dirnames[:] = [d for d in dirnames if d not in exclude]
 
             # Get images
             for file in file_list:
