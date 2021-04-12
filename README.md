@@ -9,7 +9,7 @@
 
 ## Requirements
 
-Python 3.7 or higher installed.
+Python 3.7 or higher installed. Get [Python](https://www.python.org/downloads/)!
 
 ## Setup
 
