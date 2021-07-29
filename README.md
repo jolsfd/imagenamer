@@ -7,6 +7,10 @@
 
 # ImageNamer
 
+## IMPORTANT
+
+**THIS REPOSITORY IS OBSOLETE. PLEASE USE [ImageNamer-go](https://github.com/jolsfd/imagenamer-go) INSTEAD !**
+
 ## Requirements
 
 Python 3.7 or higher installed. Get [Python](https://www.python.org/downloads/)!
